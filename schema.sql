@@ -1,0 +1,9 @@
+-- schema.sql
+CREATE TABLE IF NOT EXISTS locations (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  type VARCHAR(255) NOT NULL,
+  longitude DECIMAL(10, 6) NOT NULL,
+  latitude DECIMAL(10, 6) NOT NULL,
+  image VARCHAR(255) NOT NULL
+);
