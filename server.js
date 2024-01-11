@@ -6,12 +6,14 @@ const db = require('./database.js')
 
 app.use(cors())
 
-app.get('/api', (req, res) => {
+app.get('/api/places', (req, res) => {
   res.send({response: "Get Places"})
+  //request places from datapase
+  
 })
 
 app.use(express.json());
-app.post('/api', (req, res) => {
+app.post('/api/place', (req, res) => {
   const { name, image, type, longitude, latitude} = req.body;
   //res.send({ data: req.body });
   const sql = 'INSERT INTO locations (name, image, type, longitude, latitude) VALUES (?, ?, ?, ?, ?)';
