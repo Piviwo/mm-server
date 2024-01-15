@@ -14,8 +14,6 @@ app.get('/api/places', (req, res) => {
       res.status(500).send({ response: 'Internal Server Error' });
       return;
     }
-    
-    console.log('Data fetched successfully');
     res.status(200).send({ response: 'Get Places', places: results });
   });
 })
