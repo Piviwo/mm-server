@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS locations (
   type VARCHAR(255) NOT NULL,
   longitude DECIMAL(10, 6) NOT NULL,
   latitude DECIMAL(10, 6) NOT NULL,
-  image VARCHAR(255) NOT NULL
+  image VARCHAR(255)
 );

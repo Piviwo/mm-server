@@ -7,9 +7,17 @@ const db = require('./database.js')
 app.use(cors())
 
 app.get('/api/places', (req, res) => {
-  res.send({response: "Get Places"})
-  //request places from datapase
-  
+  const sql = 'SELECT * FROM locations';
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error fetching data:', err);
+      res.status(500).send({ response: 'Internal Server Error' });
+      return;
+    }
+    
+    console.log('Data fetched successfully');
+    res.status(200).send({ response: 'Get Places', places: results });
+  });
 })
 
 app.use(express.json());
