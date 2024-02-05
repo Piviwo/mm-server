@@ -1,10 +1,9 @@
-const mysql = require('mysql2');
+const {Client} = require('pg');
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'EasyGoingDB'
+const db = new Client({
+  user: 'clientuser',
+  password: process.env.PASSWORD,
+  database: 'postgres'
 })
 
 db.connect((err) => {
@@ -12,24 +11,7 @@ db.connect((err) => {
     console.error('Error connecting to database:', err);
     return;
   }
-  console.log('Connected to EasyGoing database');
+  console.log('Connected to postgres database');
 });
-  
-db.query('SELECT * FROM locations', (err, results) => {
-  if (err) {
-    console.error('Error executing query:', err);
-    return;
-  }
-  console.log('Query results:', results);
-});
-
-
-/*db.end((err) => {
-  if (err) {
-    console.error('Error closing connection:', err);
-    return;
-  }
-  console.log('Connection closed');
-});*/
 
 module.exports = db;
